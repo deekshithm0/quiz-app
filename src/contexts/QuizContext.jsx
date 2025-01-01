@@ -7,6 +7,8 @@ export const QuizProvider = ({ children }) => {
   const [currentQuest, setCurrentQuest] = useState(0)
   const [quizQuestions, setQuizQuestions] = useState([])
   const [loading, setLoading] = useState(true)
+  const [selectedOption, setSelectedOption] = useState(null)
+  const [selectedOptions, setSelectedOptions] = useState({})
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -120,7 +122,11 @@ export const QuizProvider = ({ children }) => {
         completedQuestions,
         currentQuest,
         setCurrentQuest,
-        handleCompleteQuest
+        handleCompleteQuest,
+        selectedOption,
+        setSelectedOption,
+        selectedOptions,
+        setSelectedOptions
       }}
     >
       {children}
